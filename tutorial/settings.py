@@ -40,11 +40,14 @@ INSTALLED_APPS = [
     "rest_framework",
     "snippets",
     "dataapi",
+    "sales",
 ]
 REST_FRAMEWORK = {
-    "DEFAULT_RENDERER_CLASSES": [
+    "DEFAULT_RENDERER_CLASSES": (
         "rest_framework.renderers.JSONRenderer",
-    ]
+        "rest_framework.renderers.BrowsableAPIRenderer",
+    ),
+    "FORMAT_SUFFIX_KWARG": "format",  # <- 기본값이라 안써도 됨
 }
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
